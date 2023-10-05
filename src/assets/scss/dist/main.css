@@ -1,0 +1,16 @@
+
+body {
+  background: black;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: 'Gellix-Regular';
+  src:url('../fonts/Gellix-Regular.ttf') format('truetype');
+  src:url('../fonts/Gellix-Regular.eot');
+  src:url('../fonts/Gellix-Regular.woff2') format('woff2'),
+      url('../fonts/Gellix-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
