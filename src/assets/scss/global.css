@@ -111,3 +111,45 @@
     }
   }
   
+  .zoomImage:hover {
+    transform: scale(1.1); /* Increase the scale on hover to create the zoom effect */
+    transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
+  }
+
+  .custombackground{
+    background-color: #fe424c;
+    }
+
+.absolute-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8); 
+  z-index: 999; 
+}
+
+
+nav-link {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: blue;
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
+}

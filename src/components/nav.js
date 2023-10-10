@@ -1,62 +1,97 @@
-'use client'
-import React, { useState, useEffect } from "react";
-// import '../styles/globals.css'
-import Image from "next/image";
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 
-import { usePathname } from 'next/navigation'
+const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
-export default function NavBar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const pathname = usePathname();
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
 
+  };
 
-    useEffect(() => {
+  const menuItems = [
+    { title: "about us", path: "/" },
+    { title: "our work", path: "/" },
+    { title: "our clients", path: "/" },
+    { title: "our team", path: "/" },
+    { title: "contact us", path: "/" },
+  ];
 
-        const handleResize = () => {
-            setIsMenuOpen(window.innerWidth >= 768);
-        };
+  return (
+    <nav className="2xl:container  mx-auto relative">
+      <div className="flex flex-row justify-between  mt-2 text-white items-center  ">
+        <div className="  font-extrabold	sm:text-xl text-sm  ">
+          <div className="sm:w-[100px] w-[75px]  sm:h-[100px] h-[75px] sm:border-4 border-[1px] border-white rounded-[50%] sm:m-5 m-2">
+            <a href="/" className="flex flex-col space-y-0 p-4 ">
+              <span className="">mind</span>
+              <span className="">space</span>
+            </a>
+          </div>
+        
+          <div className={`sm:hidden custom-background1 ${menuOpen ? "absolute-overlay" : ""} absolute right-0 left-0 my-24 border-b-cyan-500 border-b-[1px]`}>
 
-        handleResize();
+            <ul
+              className={`sm:flex sm:flex-row flex-col font-semibold  sm:text-lg text-2xl  my-4   items-center     ${
+                menuOpen ? "flex" : "hidden"
+              }  sm:space-y-0 space-y-16 mt-3`}
+            >
+              {menuItems.map((item, index) => (
+                <li key={index}>
+                  <Link href={item.path}
+                  className={`nav-link ${router.pathname === item.path ? "active" : ""}`}>
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
+        <div className="sm:hidden items-center  ml-[20%] mr-5 mt-1   ">
+          <button
+            onClick={toggleMenu}
+            className="text-white w-[36px] h-[29px]    rounded-[4px] "
+          >
+            <svg
+              className="h-6 w-6 fill-current custom-green0 "
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              {menuOpen ? (
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M4 5H20V7H4V5ZM4 11H20V13H4V11ZM4 17H20V19H4V17Z"
+                />
+              ) : (
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M4 5H20V7H4V5ZM4 11H20V13H4V11ZM4 17H20V19H4V17Z"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
 
-        window.addEventListener("resize", handleResize);
+        <div className={"hidden sm:flex items-center  "}>
+          <ul className=" flex   justify-between  text-lg  sm:space-x-[52px]  font-semibold   ">
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <Link href={item.path}>
+                  <span>{item.title}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
-    return (
-        <header className="z-10  w-full ">
-            <div className="max-w-screen-xl flex flex-wrap justify-between items-center text-ffffffb2 mx-auto sm:px-20 sm:py-14">
-            <a href="/" className={`block text-center text-2xl no-underline decoration-white sm:py-1 h-full leading-8 px-5 py-3.5 hover:bg-black ${pathname === '/' ? 'active' : ''}`}>CreoShift</a>
-
-                <button
-                    type="button"
-                    className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100"
-                    aria-controls="navbar-default"
-                    aria-expanded={isMenuOpen ? "true" : "false"}
-                    onClick={toggleMenu}
-                >
-                    <span className="sr-only">Open main menu</span>
-                    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                </button>
-                <div className={`w-full md:w-auto ${isMenuOpen ? "block" : "hidden"}`} id="navbar-default">
-                    <div className="sm:static absolute w-full bg-black z-50 nav flex flex-col md:flex-row  md:mt-0 md:border-0">
-                        <a href="/" className={`block text-center text-lg no-underline decoration-white sm:py-1 h-full leading-8 px-5 py-3.5 hover:bg-black ${pathname === '/' ? 'active' : ''}`}>about us</a>
-                        <a href="/" className={`block text-center text-lg no-underline decoration-white sm:py-1 h-full leading-8 px-5 py-3.5 hover:bg-black ${pathname === '/job' ? 'active' : ''}`}>our work</a>
-                        <a href="/" className={`block text-center text-lg no-underline decoration-white sm:py-1 h-full leading-8 px-5 py-3.5 hover:bg-black ${usePathname() === '/contact' ? 'active' : ''}`}>our clients</a>
-                        
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
-}
+export default NavBar;

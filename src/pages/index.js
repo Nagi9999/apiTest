@@ -1,34 +1,16 @@
-import NavBar from '@/components/nav'
-import Banner from '@/components/banner'
-import Collection from '@/components/collection'
-import Footer from '@/components/footer'
-import axios from "@/utils/axios";
+import Banner from "@/components/banner";
+import Card from "@/components/card";
+import Footer from "@/components/footer";
 
-
-export default function Home({ data }) {
-  console.log({data})
+export default function Home({ }) {
+  
   return (
     
-    <div>
-      <NavBar></NavBar>
-      <Banner></Banner>
-      <Collection data={data}></Collection>
-      <Footer></Footer>
-    </div>
-  )
+<main className="  flex flex-col justify-center  ">  
+    <Banner/>
+    <Card/>
+    <Footer/>
+</main>  
+)
 }
 
-export async function getServerSideProps({ locale }) {
-  let data;
-  await axios
-    .get("/projects", {
-      headers: {
-        "Accept-Language": locale,
-      },
-    })
-    .then((res) => {
-      data = res.data;
-    })
-    .catch(console.error);
-  return { props: { data } };
-}

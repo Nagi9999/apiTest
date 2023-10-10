@@ -1,3 +1,4 @@
+import NavBar from "@/components/nav";
 import "../assets/scss/global.css";
 import "../assets/scss/main.scss";
 
@@ -10,9 +11,10 @@ export default function App({ Component, pageProps }) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Next</title>
+        <title>NextJs</title>
       </Head>
-      <main>
+      <main className=" w-screen h-screen " >
+        <NavBar/>
         <Component {...pageProps} />
       </main>
     </>
