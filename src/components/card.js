@@ -81,7 +81,7 @@ const Card = () => {
       const [hoveredItem, setHoveredItem] = useState(null); // State to track hovered item
 
       return (
-        <div className="2xl:container mx-auto sm:my-32 my-16">
+        <div className="2xl:container mx-auto sm:my-32 my-16 sm:px-20">
           <div className="grid sm:grid-cols-2 grid-cols-1 sm:justify-between justify-center sm:mt-10 mt-4">
             {Data.map((item) => {
               return (
@@ -92,11 +92,11 @@ const Card = () => {
                   onMouseLeave={() => setHoveredItem(null)} // Reset the hovered item on mouse leave
                 >
                   <Link href="/">
-                    <div className="relative">
+                    <div className="relative overflow-hidden ">
                       <img
                         src={item.icon}
                         alt="Your Icon"
-                        className={`w-auto h-auto my-[5px] ${
+                        className={`duration-300 ease-[cubic-bezier(0.25, 1, 0.5, 1)] w-auto h-auto my-[5px] ${
                           hoveredItem === item.title ? "transform scale-110" : ""
                         }`}
                       />

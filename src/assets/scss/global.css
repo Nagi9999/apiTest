@@ -153,3 +153,12 @@ nav-link {
 .nav-link:hover::before {
   transform: scaleX(1);
 }
+
+.progressive-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #ff8800, #1900ff); /* Blue to Orange */
+  color: transparent;
+  display: inline;
+}
+

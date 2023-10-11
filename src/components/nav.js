@@ -15,24 +15,23 @@ const NavBar = () => {
 
   const menuItems = [
     { title: "about us", path: "/" },
-    { title: "our work", path: "/" },
-    { title: "our clients", path: "/" },
-    { title: "our team", path: "/" },
+    { title: "Inventory", path: "/" },
+    { title: "Special Offers", path: "/" },
     { title: "contact us", path: "/" },
   ];
 
   return (
-    <nav className="2xl:container  mx-auto relative">
-      <div className="flex flex-row justify-between  mt-2 text-white items-center  ">
+    <nav className="2xl:container  mx-auto relative sm:px-20 px-8">
+      <div className="flex flex-row justify-between  sm:my-12 my-6 text-white items-center  ">
         <div className="  font-extrabold	sm:text-xl text-sm  ">
-          <div className="sm:w-[100px] w-[75px]  sm:h-[100px] h-[75px] sm:border-4 border-[1px] border-white rounded-[50%] sm:m-5 m-2">
-            <a href="/" className="flex flex-col space-y-0 p-4 ">
-              <span className="">mind</span>
-              <span className="">space</span>
+          <div className="">
+            <a href="/" className=" ">
+              <span className="text-blue-500">Auto</span>
+              <span className="text-orange-500">Vista</span>
             </a>
           </div>
         
-          <div className={`sm:hidden custom-background1 ${menuOpen ? "absolute-overlay" : ""} absolute right-0 left-0 my-24 border-b-cyan-500 border-b-[1px]`}>
+          <div className={`sm:hidden custom-background1 ${menuOpen ? "absolute-overlay" : ""} absolute right-0 left-0 sm:my-24 my-12   border-b-cyan-500 border-b-[1px]`}>
 
             <ul
               className={`sm:flex sm:flex-row flex-col font-semibold  sm:text-lg text-2xl  my-4   items-center     ${
@@ -79,7 +78,7 @@ const NavBar = () => {
         </div>
 
         <div className={"hidden sm:flex items-center  "}>
-          <ul className=" flex   justify-between  text-lg  sm:space-x-[52px]  font-semibold   ">
+          <ul className=" flex   justify-between  text-lg  sm:space-x-[52px] sm:pr-16 font-semibold   ">
             {menuItems.map((item, index) => (
               <li key={index}>
                 <Link href={item.path}>
