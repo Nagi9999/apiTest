@@ -9,7 +9,7 @@ export default function Home({data }) {
   return (
     
 <main className="  flex flex-col justify-center  ">  
-    <Banner/>
+    <Banner data={data} />
     <Card data={data}  />
     <Footer/>
 </main>  

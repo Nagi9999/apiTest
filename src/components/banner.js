@@ -1,10 +1,10 @@
-const Banner = () => {
+const Banner = (props) => {
   return (
     <div className="relative sm:mt-0 mt-16">
       <div>
         <img
           className="w-full max-h-[80vh] object-cover"
-          src="/images/banner.jpg"
+          src={props.data.data[1].image}
           alt="Banner Image"
         />
       </div>
