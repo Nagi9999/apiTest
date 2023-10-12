@@ -162,3 +162,10 @@ nav-link {
   display: inline;
 }
 
+.centered-slide {
+  opacity: 1; /* Show the centered slide content */
+  transform: scale(1); /* Make it full-size */
+
+  /* Add other styles for the centered slide, such as text and title styles */
+}
+
