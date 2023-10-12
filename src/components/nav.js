@@ -1,12 +1,18 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from "next/router";
+import { usePathname } from 'next/navigation'
 
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const router = useRouter();
+  const [selectedLink, setSelectedLink] = useState(""); 
+  const pathname = usePathname();
+  useEffect(() => {
+    setSelectedLink(pathname);
+  }, [pathname]);
+
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -14,10 +20,10 @@ const NavBar = () => {
   };
 
   const menuItems = [
-    { title: "about us", path: "/" },
-    { title: "Inventory", path: "/" },
-    { title: "Special Offers", path: "/" },
-    { title: "contact us", path: "/" },
+    { title: "about us", path: "/aboutus" },
+    { title: "Inventory", path: "/inventory" },
+    { title: "Special Offers", path: "/specialOffers" },
+    { title: "contact us", path: "/contactus" },
   ];
 
   return (
@@ -38,10 +44,10 @@ const NavBar = () => {
                 menuOpen ? "flex" : "hidden"
               }  sm:space-y-0 space-y-16 mt-3`}
             >
-              {menuItems.map((item, index) => (
-                <li key={index}>
+              {menuItems.map((item) => (
+                <li key={item.path}>
                   <Link href={item.path}
-                  className={`nav-link ${router.pathname === item.path ? "active" : ""}`}>
+                  className={`nav-link `}>
                     <span>{item.title}</span>
                   </Link>
                 </li>
@@ -79,8 +85,8 @@ const NavBar = () => {
 
         <div className={"hidden sm:flex items-center  "}>
           <ul className=" flex   justify-between  text-lg  sm:space-x-[52px] sm:pr-16 font-semibold   ">
-            {menuItems.map((item, index) => (
-              <li key={index}>
+            {menuItems.map((item) => (
+              <li key={item.path}>
                 <Link href={item.path}>
                   <span>{item.title}</span>
                 </Link>
