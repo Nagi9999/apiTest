@@ -14,11 +14,13 @@ export default function Page({ data }) {
 
   const goToNextSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
     }
   };
 
   const goToPrevSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
     }
   };
 
@@ -36,14 +38,16 @@ export default function Page({ data }) {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
+        loop={true}
         breakpoints={{
           600: {
             slidesPerView: 3,
           },
         }}
         onSlideChange={(swiper) => {
-          console.log("slide change", swiper.activeIndex);
-          setActiveSlideIndex(swiper.activeIndex);
+          // Calculate the real active index (taking loop into account)
+          const realActiveIndex = swiper.realIndex;
+          setActiveSlideIndex(realActiveIndex);
         }}
       >
         {data.data.map((item, index) => (
@@ -55,17 +59,18 @@ export default function Page({ data }) {
                     <img
                       src={item.image}
                       alt="Your Icon"
-                      className="sm:h-[400px]  "
+                      className=" "
                     />
                   </div>
+                  {/* Conditionally render text and title for the middle slide */}
                   {index === activeSlideIndex ? (
                     <div className="m-8">
                       <h2
-                        className={`font-bold sm:text-2xl text-xl sm:mt-4 text-white my-3 pr-4 `}
+                        className={`font-bold sm:text-2xl text-xl sm:mt-4 text-white my-3 `}
                       >
                         {item.title}
                       </h2>
-                      <p className="sm:mt-4 mt-2 pr-4 sm:text-xl text-lg text-white sm:tracking-normal tracking-tighter">
+                      <p className="sm:mt-4 mt-2  sm:text-xl text-lg text-white sm:tracking-normal tracking-tighter">
                         {item.text}
                       </p>
                     </div>
