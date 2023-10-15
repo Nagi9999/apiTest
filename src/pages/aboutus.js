@@ -55,11 +55,11 @@ export default function Page({ data }) {
             <div className="flex justify-between sm:mt-10 mt-4">
               <div className={`flex justify-center `}>
                 <div>
-                  <div className="relative">
+                  <div className="relative ">
                     <img
                       src={item.image}
                       alt="Your Icon"
-                      className=" "
+                      className="sm:min-h-[450px]  min-h-[300px]  "
                     />
                   </div>
                   {/* Conditionally render text and title for the middle slide */}
