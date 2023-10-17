@@ -92,8 +92,8 @@ const Filter = () => {
     <section className="my-16">
       <div className="max-w-[1170px] px-[15px] mx-auto py-5 text-white">
         <h1 className="text-center font-bold text-5xl sm:mt-16 mt-10 sm:mb-32 mb-16">
-          <span className="text-blue-500">Filter </span>
-          <span className="text-orange-500">Cars</span>{" "}
+          <span className="text-blue-500">Special </span>
+          <span className="text-orange-500">Offers</span>{" "}
         </h1>
         <div className="sm:mb-10 mb-6">
           <label
