@@ -28,7 +28,7 @@ const NavBar = () => {
 
   return (
     <nav className="2xl:container  mx-auto relative sm:px-20 px-8">
-      <div className="flex flex-row justify-between  sm:my-12 my-6 text-white items-center  ">
+      <div className="flex flex-row justify-between  sm:my-12 my-6 text-blue-500   items-center  ">
         <div className="  font-extrabold	sm:text-xl text-sm  ">
           <div className="">
             <a href="/" className=" ">
