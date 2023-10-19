@@ -23,7 +23,7 @@ const Card = (props) => {
               onMouseLeave={() => setHoveredItem(null)}
             >
               <div onClick={() => handleClick(item.id)} ref={adRef}>
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden cursor-pointer">
                   <img
                     src={item.image}
                     alt="Your Icon"
