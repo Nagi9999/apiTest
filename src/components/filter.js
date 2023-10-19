@@ -128,7 +128,7 @@ const Filter = () => {
               return (
                 <div className="mx-5 my-10 " key={id}>
                   <img
-                    className="w-full h-full object-cover object-center  "
+                    className="w-full h-full object-cover     "
                     src={image}
                     alt="demo"
                   />
