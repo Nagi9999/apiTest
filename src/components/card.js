@@ -1,9 +1,15 @@
 "use client";
-import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useRouter } from "next/router";
 
 const Card = (props) => {
-  const [hoveredItem, setHoveredItem] = useState(null); // State to track hovered item
+  const [hoveredItem, setHoveredItem] = useState(null);
+  const adRef = useRef(null);
+  const router = useRouter();
+
+  const handleClick = (id) => {
+    router.push(`/details/${id}`);
+  };
 
   return (
     <div className="2xl:container mx-auto sm:my-32 my-16 sm:px-20">
@@ -13,11 +19,11 @@ const Card = (props) => {
             <div
               key={item.title}
               className="col-span-1 custom-white0 rounded-md sm:mx-1 mx-3 text-justify items-center sm:px-6 px-3 sm:py-10 py-4 sm:my-0 my-5"
-              onMouseEnter={() => setHoveredItem(item.title)} // Set the hovered item on mouse enter
-              onMouseLeave={() => setHoveredItem(null)} // Reset the hovered item on mouse leave
+              onMouseEnter={() => setHoveredItem(item.title)}
+              onMouseLeave={() => setHoveredItem(null)}
             >
-              <Link href="/">
-                <div className="relative overflow-hidden ">
+              <div onClick={() => handleClick(item.id)} ref={adRef}>
+                <div className="relative overflow-hidden">
                   <img
                     src={item.image}
                     alt="Your Icon"
@@ -32,7 +38,7 @@ const Card = (props) => {
                 <p className="sm:mt-4 mt-2 pr-4 sm:text-xl text-lg text-white sm:tracking-normal tracking-tighter">
                   {item.text}
                 </p>
-              </Link>
+              </div>
             </div>
           );
         })}
