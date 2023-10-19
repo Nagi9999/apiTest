@@ -126,9 +126,9 @@ const Filter = () => {
             filterImages.map((item, id) => {
               const { image, title } = item;
               return (
-                <div className="mx-5 my-10" key={id}>
+                <div className="mx-5 my-10 " key={id}>
                   <img
-                    className="w-full h-full object-fill "
+                    className="w-full h-full object-cover object-center  "
                     src={image}
                     alt="demo"
                   />

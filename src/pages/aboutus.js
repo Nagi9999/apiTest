@@ -59,7 +59,7 @@ export default function Page({ data }) {
                     <img
                       src={item.image}
                       alt="Your Icon"
-                      className="sm:min-h-[450px]  min-h-[300px]  "
+                      className="sm:min-h-[450px]  min-h-[300px] object-cover "
                     />
                   </div>
                   {/* Conditionally render text and title for the middle slide */}

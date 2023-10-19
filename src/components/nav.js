@@ -1,22 +1,25 @@
-"use client";
-import Link from "next/link";
-import { useState,useEffect } from "react";
+"use client";import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { usePathname } from 'next/navigation'
-
+import { usePathname } from "next/navigation";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedLink, setSelectedLink] = useState(""); 
+  const [selectedLink, setSelectedLink] = useState("");
   const pathname = usePathname();
   useEffect(() => {
     setSelectedLink(pathname);
   }, [pathname]);
 
+  const router = useRouter(); 
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
 
+ //Close the menu when a link is clicked
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   const menuItems = [
@@ -27,27 +30,29 @@ const NavBar = () => {
   ];
 
   return (
-    <nav className="2xl:container  mx-auto relative sm:px-20 px-8">
-      <div className="flex flex-row justify-between  sm:my-12 my-6 text-blue-500   items-center  ">
-        <div className="  font-extrabold	sm:text-xl text-sm  ">
+    <nav className="2xl:container mx-auto relative sm:px-20 px-8">
+      <div className="flex flex-row justify-between sm:my-12 my-6 text-blue-500 items-center">
+        <div className="font-extrabold sm:text-xl text-sm">
           <div className="">
-            <a href="/" className=" ">
+            <a href="/" className="">
               <span className="text-blue-500">Auto</span>
               <span className="text-orange-500">Vista</span>
             </a>
           </div>
-        
-          <div className={`sm:hidden custom-background1 ${menuOpen ? "absolute-overlay" : ""} absolute right-0 left-0 sm:my-24 my-12   border-b-cyan-500 border-b-[1px]`}>
 
+          <div
+            className={`sm:hidden custom-background1 ${
+              menuOpen ? "absolute-overlay" : ""
+            } absolute right-0 left-0 sm:my-24 my-12 border-b-cyan-500 border-b-[1px]`}
+          >
             <ul
-              className={`sm:flex sm:flex-row flex-col font-semibold  sm:text-lg text-2xl  my-4   items-center     ${
+              className={`sm:flex sm:flex-row flex-col font-semibold sm:text-lg text-2xl my-4 items-center ${
                 menuOpen ? "flex" : "hidden"
-              }  sm:space-y-0 space-y-16 mt-3`}
+              } sm:space-y-0 space-y-16 mt-3`}
             >
               {menuItems.map((item) => (
                 <li key={item.path}>
-                  <Link href={item.path}
-                  className={`nav-link `}>
+                  <Link href={item.path} className={`nav-link`} onClick={closeMenu}>
                     <span>{item.title}</span>
                   </Link>
                 </li>
@@ -56,13 +61,13 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="sm:hidden items-center  ml-[20%] mr-5 mt-1   ">
+        <div className="sm:hidden items-center ml-[20%] mr-5 mt-1">
           <button
             onClick={toggleMenu}
-            className="text-white w-[36px] h-[29px]    rounded-[4px] "
+            className="text-white w-[36px] h-[29px] rounded-[4px]"
           >
             <svg
-              className="h-6 w-6 fill-current custom-green0 "
+              className="h-6 w-6 fill-current custom-green0"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -83,11 +88,11 @@ const NavBar = () => {
           </button>
         </div>
 
-        <div className={"hidden sm:flex items-center  "}>
-          <ul className=" flex   justify-between  text-lg  sm:space-x-[52px] sm:pr-16 font-semibold   ">
+        <div className={"hidden sm:flex items-center"}>
+          <ul className="flex justify-between text-lg sm:space-x-[52px] sm:pr-16 font-semibold">
             {menuItems.map((item) => (
               <li key={item.path}>
-                <Link href={item.path}>
+                <Link href={item.path} onClick={closeMenu}>
                   <span>{item.title}</span>
                 </Link>
               </li>
