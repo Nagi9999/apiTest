@@ -11,8 +11,8 @@ const Footer = (props) => {
   ];
 
   return (
-    <div className="bg-blue-900">
-      <div className="2xl:container mx-auto">
+    <div className="bg-blue-900  ">
+      <div className="2xl:container mx-auto ">
         <div className="flex flex-col items-center text-center text-white my-16">
           <h1 className="sm:text-3xl text-2xl font-bold">sitemap</h1>
           <ul className={`flex flex-col font-semibold text-sm my-4 sm:space-y-2 space-y-2 mt-6`}>

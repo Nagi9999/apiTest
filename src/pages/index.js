@@ -1,7 +1,6 @@
 
 import Banner from "@/components/banner";
 import Card from "@/components/card";
-import Footer from "@/components/footer";
 import axios from "@/utils/axios";
 
 export default function Home({data, data1 }) {
@@ -11,7 +10,6 @@ export default function Home({data, data1 }) {
 <main className="  flex flex-col justify-center  ">  
     <Banner data={data} />
     <Card data={data}  />
-    <Footer socialLinks={data1.data.social_media} />
 </main>  
 )
 }

@@ -18,12 +18,12 @@ const Card = (props) => {
           return (
             <div
               key={item.title}
-              className="col-span-1 custom-white0 rounded-md sm:mx-1 mx-3 text-justify items-center sm:px-6 px-3 sm:py-10 py-4 sm:my-0 my-5"
+              className="col-span-1 custom-white0 rounded-md sm:mx-1 mx-3 text-justify items-center sm:px-6 px-3 sm:py-10 py-4 sm:my-0 my-5 cursor-pointer"
               onMouseEnter={() => setHoveredItem(item.title)}
               onMouseLeave={() => setHoveredItem(null)}
             >
               <div onClick={() => handleClick(item.id)} ref={adRef}>
-                <div className="relative overflow-hidden cursor-pointer">
+                <div className="relative overflow-hidden ">
                   <img
                     src={item.image}
                     alt="Your Icon"

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function WallPaper({ imageSrc, children,  textPosition, imagePosition }) {
   const imageOrder = imagePosition === 'left' ? 'sm:pr-0 pr-0 justify-start' : 'sm:pl-0 pl-0 justify-end';
-  const textOrder = textPosition === 'left' ? 'sm:pl-0 pl-0 sm:pr-2 pr-0 left-0' : 'sm:pr-20 pr-0 sm:pl-2 pl-0 right-0';
+  const textOrder = textPosition === 'left' ? 'sm:pl-20 pl-0 sm:pr-2 pr-0 left-0' : 'sm:pr-20 pr-0 sm:pl-2 pl-0 right-0';
 
   return (
     <div className={`relative  sm:flex ${imageOrder}  mt-12 `}>
