@@ -11,7 +11,7 @@ export default function Details({ data }) {
   console.log(selectedItem);
 
   return (
-    <section className="sm:px-20 px-5 sm:pt-5 pt-10 sm:pb-10 pb-14 mx-auto 2xl:container text-white overflow-hidden">
+    <section className="sm:px-20 px-5 sm:pt-5 pt-10 sm:pb-10 pb-14 mx-auto 2xl:container text-white overflow-hidden my-16">
       {selectedItem && (
         <div className="bg-blue-300 rounded-lg  shadow-lg p-4 md:p-6">
         <img src={selectedItem.image} alt="Selected Item Image" className="w-full rounded-lg mb-2 md:mb-4" />

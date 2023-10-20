@@ -52,7 +52,7 @@ export default function Page({ data }) {
       >
         {data.data.map((item, index) => (
           <SwiperSlide key={item.title}>
-            <div className="flex justify-between sm:mt-10 mt-4">
+            <div className="flex justify-between my-16 ">
               <div className={`flex justify-center `}>
                 <div>
                   <div className="relative ">
