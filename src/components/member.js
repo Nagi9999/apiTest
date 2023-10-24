@@ -53,7 +53,6 @@ const Member = () => {
     },
   ];
 
-  
   useEffect(() => {
     // Function to handle the image spin animation
     const spinImages = () => {
@@ -71,47 +70,46 @@ const Member = () => {
     };
 
     const animateText = () => {
-        const textElements = document.querySelectorAll(".scale-text");
-        
-        textElements.forEach((text, index) => {
-          gsap.from(text, {
-            y: (index % 2 === 0) ? "-100%" : "100%", // Alternate the direction of animation
-            scale: 0, // Start with a scale of 0
-            opacity: 0, // Start with opacity 0
-            duration: 1, // Animation duration in seconds
-            ease: "power1.inOut", // Easing function
-            delay: index * 0.2, // Add a delay to stagger the animations
-          });
-        });
-      };
+      const textElements = document.querySelectorAll(".scale-text");
 
-      const animateBorder = () => {
-        const borderElements = document.querySelectorAll(".border-circle");
-  
-        borderElements.forEach((border) => {
-          gsap.from(border, {
-            scale: 0, // Start with a scale of 0
-            duration: 1, // Animation duration in seconds
-            ease: "power1.inOut", // Easing function
-          });
+      textElements.forEach((text, index) => {
+        gsap.from(text, {
+          y: index % 2 === 0 ? "-100%" : "100%", // Alternate the direction of animation
+          scale: 0, // Start with a scale of 0
+          opacity: 0, // Start with opacity 0
+          duration: 1, // Animation duration in seconds
+          ease: "power1.inOut", // Easing function
+          delay: index * 0.2, // Add a delay to stagger the animations
         });
-      };
+      });
+    };
+
+    const animateBorder = () => {
+      const borderElements = document.querySelectorAll(".border-circle");
+
+      borderElements.forEach((border) => {
+        gsap.from(border, {
+          scale: 0, // Start with a scale of 0
+          duration: 1, // Animation duration in seconds
+          ease: "power1.inOut", // Easing function
+        });
+      });
+    };
 
     // Call the spinImages function when the component mounts
     spinImages();
     animateText();
     animateBorder();
   }, []);
-  
 
   return (
     <div className="flex justify-center pt-20 my-20">
-      <div className="grid sm:grid-cols-4 grid-cols-1 justify-between sm:space-x-16 space-x-4  sm:space-y-16 space-y-4 my-8">
+      <div className="grid sm:grid-cols-4 grid-cols-1 justify-between ">
         {Data.map((item) => {
           return (
             <div
               key={item.id}
-              className="px-8 sm:px-8 py-4 sm:py-8  rounded-md text-justify text-white text-2xl max-w-[300px]"
+              className="px-8 sm:px-8 m-8 py-4 sm:py-8  rounded-md text-justify text-white text-2xl max-w-[300px]"
             >
               <div className="box-border border-orange-500 border-2 jus rounded-full p-4 flex flex-col items-center justify-center border-circle">
                 <img
