@@ -169,3 +169,11 @@ nav-link {
   /* Add other styles for the centered slide, such as text and title styles */
 }
 
+
+
+.vertical-line::before {
+  content: "";
+  border-left: 2px solid orange; /* Increase the width (taller line) and color as needed */
+  height: 100%; /* Set the height to 100% to make it as tall as the container */
+  display: inline-block; /* This makes it take up the full height of its container */
+}
