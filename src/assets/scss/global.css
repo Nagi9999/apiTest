@@ -177,3 +177,10 @@ nav-link {
   height: 100%; /* Set the height to 100% to make it as tall as the container */
   display: inline-block; /* This makes it take up the full height of its container */
 }
+
+
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
