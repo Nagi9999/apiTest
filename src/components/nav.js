@@ -27,6 +27,7 @@ const NavBar = () => {
     { title: "Inventory", path: "/inventory" },
     { title: "Special Offers", path: "/specialOffers" },
     { title: "Our Team", path: "/ourteam" },
+    { title: "Our Gallery", path: "/ourgallery" },
   ];
 
   return (

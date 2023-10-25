@@ -7,7 +7,9 @@ const Footer = (props) => {
     { title: "about us", path: "/aboutus" },
     { title: "Inventory", path: "/inventory" },
     { title: "Special Offers", path: "/specialOffers" },
-    { title: "contact us", path: "/contactus" },
+    { title: "Our Team", path: "/ourteam" },
+    { title: "Our Gallery", path: "/ourgallery" },
+
   ];
 
   return (
