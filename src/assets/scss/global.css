@@ -196,7 +196,8 @@ body {
   width: 32px;
   height: 32px;
   pointer-events: none;
-  transform: scale(1);
+  transform-origin: center;
+
   transition: transform 0.15 ease; /* Cursor disc transition (shorter duration) */
   z-index: 9999;
 }
@@ -209,7 +210,6 @@ body {
   position: absolute;
   transform-origin: center;
 
-  transform: scale(1);
   transition: transform 0.2s ease; /* Add a transition for circle movement */
   pointer-events: none;
 
@@ -222,7 +222,6 @@ body {
   border-radius: 50%;
   position: absolute;
   transform-origin: center;
-  transform: scale(1);
   transition: transform 0.15 ease; /* Cursor disc transition (shorter duration) */
 
 }

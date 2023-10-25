@@ -8,24 +8,35 @@ const CustomCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+
+    const { clientX, clientY } = { x: 0, y: 0 };
+
     const onMouseMove = (e) => {
+
       const { clientX, clientY } = e;
-      const cursor = cursorRef.current;
       const circle = circleRef.current;
       const disc = discRef.current;
 
-      if (cursor && circle && disc) {
-       
+      // Adjust the circle's position with a slight delay
+      if (circle && disc) {
+        const circleX = clientX - circle.clientWidth / 2;
+        const circleY = clientY - circle.clientHeight / 2;
 
-        circle.style.transform = `translate(-50%, -50%)`;
-        disc.style.transform = `translate(-50%, -50%)`;
+        // Adjust the disc's position with a delay
+        const discX = clientX - disc.clientWidth / 2;
+        const discY = clientY - disc.clientHeight / 2;
+
+        circle.style.transform = `translate(${circleX}px, ${circleY}px)`;
+
+        // Create a slight delay for the disc's movement
+        setTimeout(() => {
+          disc.style.transform = `translate(${discX}px, ${discY}px)`;
+        }, 50); // Adjust the delay time as needed
       }
 
-      setPosition({ x: clientX, y: clientY });
+   
     };
 
-
-    
     window.addEventListener('mousemove', onMouseMove);
 
     return () => {
