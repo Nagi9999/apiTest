@@ -37,12 +37,12 @@ const Inventory = ({ data }) => {
   return (
     <main className="2xl:container mx-auto" ref={containerRef}>
       {slicedData.map((item, index) => (
-        <div className="inventory-item my-16" key={index}>
-          <WallPaper imageSrc={item.image} textPosition="left" imagePosition="right">
-            <div className="image-title-container">
-              <h1 className="sm:text-4xl text-lg sm:font-semibold inventory-title" style={{ position: 'absolute', bottom: '0', left: '0', right: '0' }} >{item.title}</h1>
+        <div className="inventory-item my-16  " key={index}>
+          <WallPaper cl imageSrc={item.image} textPosition="left" imagePosition="right">
+            <div className="image-title-container ">
+              <h1 className="sm:text-4xl text-lg sm:font-semibold inventory-title sm:ml-32 hidden md:inline" style={{ position: 'absolute', bottom: '0', left: '0', right: '0' }} >{item.title}</h1>
             </div>
-            <p className="font-semibold sm:text-lg text-[8px] inventory-text" style={{ position: 'absolute', bottom: '0', left: '0', right: '0' }} >{item.text}</p>
+            <p className="font-semibold sm:text-lg text-[8px] inventory-text sm:ml-32" style={{ position: 'absolute', bottom: '0', left: '0', right: '0' }} >{item.text}</p>
           </WallPaper>
         </div>
       ))}

@@ -184,3 +184,40 @@ nav-link {
   filter: grayscale(100%);
 }
 
+
+body {
+  cursor: none;
+}
+
+
+.custom-cursor {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease;
+  z-index: 9999;
+}
+
+.cursor-circle {
+  width: 100px; /* Increase the width of the circle to make the background visible */
+  height: 100px; /* Increase the height of the circle to make the background visible */
+  border: 2px solid #125de7; /* Add a white border */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-disc {
+  width: 30px;
+  height: 30px;
+  background:  #ec7505;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
